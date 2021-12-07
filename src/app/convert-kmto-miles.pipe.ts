@@ -6,12 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ConvertKmtoMilesPipe implements PipeTransform {
 
   transform(value: number, args: string): unknown {
-    if (value === 0) {
+    if (value === 0 || isNaN(value)) {
       return
     }
 
     switch(args) {
-      case 'km': {
+      case 'km': { 
+        console.log(typeof (value * 1.6))
+        
         return value * 1.6
       }
 
@@ -20,7 +22,7 @@ export class ConvertKmtoMilesPipe implements PipeTransform {
       }
 
       case 'cm': {
-        return value * 1.6 * 1000 * 100
+        return value * 1.6 * 1000 * 100  
       }
       
       default:
