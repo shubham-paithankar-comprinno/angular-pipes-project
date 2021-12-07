@@ -1,5 +1,30 @@
-<div>
-  <label>Payee Name</label>
-  <input (input)="onNameChange($event)" />
+<div class="container">
+  <h3>Payment Form</h3>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Payee Name</label>
+      <input class="form-control" (input)="onNameChange($event)" />
+    </div>
+    <div class="col">
+      <label><b>Name</b></label>
+      <div>
+        {{ name | titlecase }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Payment Date</label>
+      <input type="date" class="form-control" (input)="onDateChange($event)" />
+    </div>
+    <div class="col">
+      <label><b>Payment Date</b></label>
+      <div>
+        {{ date | date: 'MMMM d, yyyy' }}
+      </div>
+    </div>
+  </div>
+
 </div>
-{{ name | titlecase }}
