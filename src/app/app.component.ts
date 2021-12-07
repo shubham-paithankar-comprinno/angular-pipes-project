@@ -10,6 +10,7 @@ export class AppComponent {
   name: string = ''
   date: string = ''
   amount: number = 0
+  height: number = 0
 
   // Functions
   onNameChange (event: Event) {
@@ -31,6 +32,17 @@ export class AppComponent {
     }
     
     this.amount = parseFloat(value)
+  }
+
+  onHeightChange (event: Event) {
+    let { value = '0' } = event.target as HTMLInputElement
+    
+    if(isNaN(parseFloat(value))) {
+      this.height = 0
+      return
+    }
+    
+    this.height = parseFloat(value)
   }
 
 }
