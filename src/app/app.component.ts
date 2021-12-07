@@ -11,6 +11,7 @@ export class AppComponent {
   date: string = ''
   amount: number = 0
   height: number = 0
+  miles: number = 0
 
   // Functions
   onNameChange (event: Event) {
@@ -43,6 +44,17 @@ export class AppComponent {
     }
     
     this.height = parseFloat(value)
+  }
+
+  onMilesChange (event: Event) {
+    let { value = '0' } = event.target as HTMLInputElement
+    
+    if(isNaN(parseFloat(value))) {
+      this.miles = 0
+      return
+    }
+    
+    this.miles = parseFloat(value)
   }
 
 }
