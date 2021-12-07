@@ -27,4 +27,17 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="form-group col">
+      <label>Payment Amount</label>
+      <input type="number" class="form-control" (input)="onAmountChange($event)" />
+    </div>
+    <div class="col">
+      <label><b>Payment Amount</b></label>
+      <div>
+        {{ amount | currency: 'INR' }}
+      </div>
+    </div>
+  </div>
+
 </div>
